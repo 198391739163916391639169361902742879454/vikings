@@ -1,16 +1,15 @@
 from django.contrib import admin
 
+from .models import Post, Topic, Comment, User, Note
+
 # Register your models here.
+admin.site.register(Post)
+admin.site.register(Topic)
+admin.site.register(Comment)
+admin.site.register(User)
 
-from .models import Challenge, Quizz, Hint, Answer
-
-class siteAdmin(admin.ModelAdmin):
-    readonly_fields = ('id',)  
-admin.site.register(Challenge,siteAdmin)
-admin.site.register(Hint,siteAdmin)
-admin.site.register(Quizz,siteAdmin)
-admin.site.register(Answer,siteAdmin)
-# class NoteAdmin(admin.ModelAdmin):
-#     list_filter = ('day_created',)
-#     list_display = ('name', 'day_created', 'date_start', 'date_end', 'description')
-# admin.site.register(Challenge)
+@admin.register(Note)
+class NoteAdmin(admin.ModelAdmin):
+    list_filter = ('user',)
+    list_display = ('user', 'date', 'content',)
+# admin.site.register(Note)

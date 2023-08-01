@@ -1,16 +1,15 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-    path('', views.viewChallenge, name="challenge"),
-    path('create_challenge',views.create_challenge,name="create_challenge"),
-    path('create_challenge_quizz/<str:pk>/',views.create_challenge_quizz,name="create_challenge_quizz"),
-    path('display_quizzes/<str:pk>/',views.display_quizzes,name="display_quizzes"),
-    path('display_quizzes/<str:pk>/edit_quizz/<str:pk1>/',views.edit_quizz,name="edit_quizz"),
-    path('join_challenge/<str:pk>/',views.join_challenge,name="join_challenge"),
-    path('register_challenge/<str:pk>/',views.register_challenge,name="register_challenge"),
-    path('expired_challenge/<str:pk>/',views.expired_challenge,name="expired_challenge"),
-    path('play_challenge/<str:pk>/',views.play_challenge,name="play_challenge"),
-    path('play_challenge/<str:pk>/play_challenge_quizz/<str:pk1>/',views.play_challenge_quizz,name="play_challenge_quizz"),
+    path('', views.community, name="community"),
+    path('post/<str:pk>/', views.post, name="post"),
+    path('create-post/', views.createPost, name="create-post"),
+    path('update-post/<str:pk>/', views.updatePost, name="update-post"),
+    path('delete-post/<str:pk>/', views.deletePost, name="delete-post"),
+    path('delete-comment/<str:pk>/', views.deleteComment, name="delete-comment"),
+    path('profile/<str:pk>/', views.userProfile, name="user-profile"),
+    path('topics/', views.topicsPage, name="topics"),
+    path('activity/', views.activityPage, name="activity"),
+    path('update-user/', views.updateUser, name="update-user"),
 ]
